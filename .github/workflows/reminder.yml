@@ -8,6 +8,7 @@ on:
 jobs:
   kirim:
     runs-on: ubuntu-latest
+    environment: DISCORD_WEBHOOK
     steps:
       - uses: actions/checkout@v4
       - run: node send.mjs

@@ -1,0 +1,16 @@
+name: Reminder Upload
+
+on:
+  schedule:
+    - cron: '7 12 * * *' # 19.07 WIB
+  workflow_dispatch:
+
+jobs:
+  kirim:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: node kirim.mjs
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_USER_ID: ${{ secrets.DISCORD_USER_ID }}
